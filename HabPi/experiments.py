@@ -14,7 +14,7 @@
 #   You should have received a copy of the GNU General Public License
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from variables import *
+from HabPi.variables import *
 import time
 import sys
 from glob import glob
@@ -30,7 +30,7 @@ def run():
         time.sleep(0.01)
 
     for script in glob(directories['root']+"/experiments/*.py"):
-        print script
+        print(script)
         experiment_threads.append(Thread(target=execfile, args=(script,globals())))
     time.sleep(1)
 
@@ -40,11 +40,11 @@ def run():
     directories['dataDir'] = dataDir
 
     for t in experiment_threads:
-    	sense.show_letter('S', [0,0,0], [255,0,0])
+        sense.show_letter('S', [0,0,0], [255,0,0])
         t.start()
-	time.sleep(0.5)
-	sense.clear()
-	time.sleep(1)
+    time.sleep(0.5)
+    sense.clear()
+    time.sleep(1)
     sense.show_letter('R', [0,0,0], [0,255,0])
     time.sleep(2)
     sense.clear()

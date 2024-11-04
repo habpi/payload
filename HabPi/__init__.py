@@ -16,11 +16,11 @@
 
 import sys
 import os
-import config
-from variables import *
-from sense_interface import prompt
+import HabPi.config
+from HabPi.variables import *
+from HabPi.sense_interface import prompt
 from threading import Thread
-import experiments
+import HabPi.experiments
 
 
 #start the interface threads
