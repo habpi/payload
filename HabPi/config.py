@@ -16,7 +16,7 @@
 
 
 #Wifi Setup
-accessPoint = True
+accessPoint = False
 ssid = 'SkyNet'
 wpa = 'Terminat0r'
 addr   = '172.24.1.1'
