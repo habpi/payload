@@ -31,7 +31,7 @@ def run():
 
     for script in glob(directories['root']+"/experiments/*.py"):
         print(script)
-        experiment_threads.append(Thread(target=execfile, args=(script,globals())))
+        experiment_threads.append(Thread(target=exec, args=(open(script).read(),globals())))
     time.sleep(1)
 
     #set up the data directory

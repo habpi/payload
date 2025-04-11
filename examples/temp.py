@@ -50,8 +50,11 @@ def read_temp(device):
 def read_all_temps(devices):
   temps = []
   for d in devices:
-    device = d + '/w1_slave'
-    temps.append(read_temp(device))
+    try:
+        device = d + '/w1_slave'
+        temps.append(read_temp(device))
+    except:
+        temps.append('')
   return temps
 
 

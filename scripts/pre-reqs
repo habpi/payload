@@ -1,0 +1,2 @@
+#!/bin/sh
+sudo apt install sense-emu-tools python3-sense-emu python3-sense-hat

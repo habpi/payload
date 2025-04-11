@@ -26,11 +26,11 @@ script = root + '/scripts'
 import HabPi
 
 #start the networking
-if HabPi.config.accessPoint:
-    args = (root+'/scripts', HabPi.config.addr, HabPi.config.dhcpStart, HabPi.config.dhcpEnd, HabPi.config.netmask, HabPi.config.network, HabPi.config.broadcast, HabPi.config.ssid, HabPi.config.wpa)
-    os.system('sudo %s/accessPoint %s %s %s %s %s %s %s %s'%args)
-else:
-    os.system('sudo %s/normalWifi'%(script,))
+#if HabPi.config.accessPoint:
+#    args = (root+'/scripts', HabPi.config.addr, HabPi.config.dhcpStart, HabPi.config.dhcpEnd, HabPi.config.netmask, HabPi.config.network, HabPi.config.broadcast, HabPi.config.ssid, HabPi.config.wpa)
+#    os.system('sudo %s/accessPoint %s %s %s %s %s %s %s %s'%args)
+#else:
+#    os.system('sudo %s/normalWifi'%(script,))
 
 #wait for everything to exit
 HabPi.join_all()

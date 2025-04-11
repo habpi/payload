@@ -13,7 +13,9 @@
 #   
 #   You should have received a copy of the GNU General Public License
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-import picamera
+from picamera2 import Picamera2
+from libcamera import Transform
+from picamera2.encoders import H264Encoder, Quality
 import time
 import os
 import sys
@@ -23,19 +25,20 @@ import HabPi
 vidDir = HabPi.directories['dataDir'] + "/video"
 os.mkdir(vidDir)
 
-#get the camera, set for max resolution
-camera = picamera.PiCamera()
-camera.resolution = (1280, 720)
+#get the camera
+camera = Picamera2()
 
-#set orientation
-camera.rotation = 180
+# set up & orientation
+vflip=True
+config = camera.create_video_configuration(transform=Transform(vflip=vflip))
+camera.configure(config)
 
-#start the first recording
-vidname="%s/%d.h264"%(vidDir, int(time.time()))
-camera.start_recording(vidname, sps_timing=True)
+# Encoder
+encoder = H264Encoder()
 
 while True:
-  #record for 10 minutes then switch the file
-  camera.wait_recording(600)
   vidname="%s/%d.h264"%(vidDir, int(time.time()))
-  camera.split_recording(vidname, sps_timing=True)
+  camera.start_recording(encoder, vidname, quality=Quality.HIGH)
+  #record for 10 minutes then switch the file
+  time.sleep(10)
+  camera.stop_recording()

@@ -1,0 +1,12 @@
+#!/bin/env python3
+from picamera2 import Picamera2, Preview
+from libcamera import Transform
+import time
+picam2 = Picamera2()
+camera_config = picam2.create_preview_configuration(transform=Transform(vflip=True))
+picam2.configure(camera_config)
+picam2.start_preview(Preview.QT)
+picam2.start()
+input("Press enter to end preview")
+picam2.stop()
+picam2.stop_preview()
