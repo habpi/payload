@@ -40,5 +40,5 @@ while True:
   vidname="%s/%d.h264"%(vidDir, int(time.time()))
   camera.start_recording(encoder, vidname, quality=Quality.HIGH)
   #record for 10 minutes then switch the file
-  time.sleep(10)
+  time.sleep(600)
   camera.stop_recording()
