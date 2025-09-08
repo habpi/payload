@@ -1,0 +1,35 @@
+#!/usr/bin/env python3
+# HabPi - A Simple Framework for High Altitude Sensing
+#   Copyright (C) 2025 Robert Lowe <rlowe8@utm.edu>
+#
+#   This program is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#   
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#   
+#   You should have received a copy of the GNU General Public License
+#   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+import os
+import glob
+import time
+
+
+
+#find the devices
+base_dir = '/sys/bus/w1/devices/'
+
+snames=set()
+while True:
+  devices = glob.glob(base_dir + '28*')
+  #generate the short-names 
+  for d in devices:
+    d=d[-4:]
+    if d not in snames:
+      print(d)
+      snames.add(d)
+  time.sleep(1)
