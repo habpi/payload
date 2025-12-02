@@ -1,5 +1,5 @@
 # HabPi - A Simple Framework for High Altitude Sensing
-#   Copyright (C) 2017 Robert Lowe <robert.lowe@maryvillecollege.edu>
+#   Copyright (C) 2025 Robert Lowe <rlowe8@utm.edu>
 #
 #   This program is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
