@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# start habpi service
+su habpi -c /home/habpi/payload/scripts/start &
