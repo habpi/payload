@@ -28,7 +28,7 @@ os.mkdir(imgDir)
 camera = Picamera2()
 
 # set up & orientation
-vflip=True
+vflip=False
 config = camera.create_still_configuration(transform=Transform(vflip=vflip))
 camera.configure(config)
 camera.options['quality']=95

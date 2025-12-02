@@ -29,7 +29,7 @@ os.mkdir(vidDir)
 camera = Picamera2()
 
 # set up & orientation
-vflip=True
+vflip=False
 config = camera.create_video_configuration(transform=Transform(vflip=vflip))
 camera.configure(config)
 
